@@ -1,22 +1,6 @@
 import re
 
 
-def find_matrix_size(claims):
-    # Find out the size of the fabric
-    # (lef + width) * (top + height)
-    _, left, top, width, height = claims[0]
-    max_width = left + width
-    max_height = top + height
-    for _, l, t, w, h in claims[1:]:
-        width = l + w
-        height = t + h
-        if width > max_width:
-            max_width = width
-        if height > max_height:
-            max_height = height
-    return(max_height, max_width)
-
-
 def part1(claims):
     # rows, columns = find_matrix_size(claims)
     matrix = [['.']*1000 for _ in range(1000)]
