@@ -5,6 +5,10 @@ def part1(data_input):
     print(frequency)
 
 
+def part1_refactored(data_input):
+    print(sum(map(int, data_input)))
+
+
 def part2(data_input):
     current_frequency = 0
     frequencies = set()
@@ -15,7 +19,7 @@ def part2(data_input):
         if current_frequency in frequencies:
             found = True
         frequencies.add(current_frequency)
-        # Start over if not found in each complete iteration
+        # Reset index if not found in a complete iteration
         index = (index+1) % len(data_input)
     print(current_frequency)
 
@@ -26,5 +30,5 @@ data_input = list()
 for line in file_handler:
     data_input.append(int(line))
 # data_input = [1, -2, 3, 1]
-part1(data_input)  # expected output 477
+part1_refactored(data_input)  # expected output 477
 part2(data_input)  # expected output 390
