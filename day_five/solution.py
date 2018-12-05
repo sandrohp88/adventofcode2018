@@ -13,11 +13,13 @@ def react(polymer_chain):
         possible_reactions.append(reaction)
 
     previous_size = -1
-    while previous_size != len(polymer_chain):
+    actual_size = len(polymer_chain)
+    while previous_size != actual_size:
         previous_size = len(polymer_chain)
         for reaction in possible_reactions:
             polymer_chain = polymer_chain.replace(reaction, '')
-    return len(polymer_chain)
+        actual_size = len(polymer_chain)
+    return actual_size
 
 
 def part2(polymer_chain):
